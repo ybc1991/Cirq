@@ -15,3 +15,4 @@
 """Visualization utilities."""
 
 from cirq.vis.heatmap import Heatmap
+from cirq.vis.histogram import plot_state_histogram

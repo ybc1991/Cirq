@@ -19,7 +19,7 @@ from matplotlib import pyplot as pl
 
 import cirq
 from cirq.devices import GridQubit
-from cirq.study import visualize
+from cirq.vis import histogram
 
 
 def test_plot_state_histogram():
@@ -33,7 +33,7 @@ def test_plot_state_histogram():
     circuit.append([cirq.measure(q0, key='q0'), cirq.measure(q1, key='q1')])
     result = simulator.run(program=circuit, repetitions=5)
 
-    values_plotted = visualize.plot_state_histogram(result)
+    values_plotted = histogram.plot_state_histogram(result)
     expected_values = [0.0, 0.0, 0.0, 5.0]
 
     np.testing.assert_equal(values_plotted, expected_values)
@@ -47,7 +47,7 @@ def test_plot_state_histogram_multi_1():
         cirq.measure(*qubits),  # One multi-qubit measurement
     )
     r = cirq.sample(c, repetitions=5)
-    values_plotted = visualize.plot_state_histogram(r)
+    values_plotted = histogram.plot_state_histogram(r)
     expected_values = [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0]
     np.testing.assert_equal(values_plotted, expected_values)
 
@@ -61,6 +61,6 @@ def test_plot_state_histogram_multi_2():
         cirq.measure_each(*qubits[2:]),  # Multiple single-qubit measurement
     )
     r = cirq.sample(c, repetitions=5)
-    values_plotted = visualize.plot_state_histogram(r)
+    values_plotted = histogram.plot_state_histogram(r)
     expected_values = [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0]
     np.testing.assert_equal(values_plotted, expected_values)

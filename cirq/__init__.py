@@ -405,7 +405,6 @@ from cirq.study import (
     ParamDictType,
     ParamResolver,
     ParamResolverOrSimilarType,
-    plot_state_histogram,
     Points,
     Product,
     Sweep,
@@ -549,6 +548,7 @@ from cirq.neutral_atoms import (
 
 from cirq.vis import (
     Heatmap,
+    plot_state_histogram,
 )
 
 from cirq.work import (
