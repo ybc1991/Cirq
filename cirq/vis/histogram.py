@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Tool to visualize the results of a study."""
+"""Plot the results of a study in histogram."""
 
 from typing import TYPE_CHECKING
 import numpy as np
